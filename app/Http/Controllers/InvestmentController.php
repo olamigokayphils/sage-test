@@ -31,7 +31,13 @@ class InvestmentController extends Controller
             'type' => 'required',
         ]);
 
-        return Investments::create($request->all());
+        $newData = Investments::create($request->all());
+
+        return [
+            "message" => "Investment Creted Succesfully",
+            "newRecord" => $newData,
+            "data" => Investments::all(),
+        ];
     }
 
     /**
@@ -83,6 +89,7 @@ class InvestmentController extends Controller
 
         return [
             "message" => "Investment Deleted Succesfully",
+            "data" => Investments::all(),
         ];
     }
 }

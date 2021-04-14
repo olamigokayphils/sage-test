@@ -28,6 +28,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::put("/investments/{id}", [InvestmentController::class, 'update']);
     Route::delete("/investments/{id}", [InvestmentController::class, 'destroy']);
     Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/get-user', [AuthController::class, 'getuser']);
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
