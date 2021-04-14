@@ -4,7 +4,6 @@ import Header from "../layout/Header"
 import QRCode from "react-qr-code";
 import { loadUser } from '../../actions/authentication'
 import { getInvestments, deleteInvestment, addInvestment } from '../../actions/investments'
-import { set } from 'lodash';
 
 
 
@@ -40,9 +39,6 @@ export default function Home() {
         if(prevInvestmentArray.length !== investmentArray.length){
         setDisplaySpinner(false)
             setInvestments(investmentArray[investmentArray.length -1])
-            if(investmentArray.length > prevInvestmentArray.length){
-                setHideAlert(false)
-            }
         }
     }
     })
